@@ -1,1 +1,1 @@
-Filter = { Bundles = ( "com.apple.MusicUI", "com.apple.Music", "com.apple.UIKit" ); };
+Filter = { Bundles = ( "com.apple.MusicUI", "com.apple.Music", "com.apple.UIKit", "com.spotify.client" ); };
