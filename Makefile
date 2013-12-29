@@ -1,4 +1,4 @@
-export THEOS_DEVICE_IP=10.0.0.10
+export THEOS_DEVICE_IP=10.0.0.5
 export TARGET = iphone:clang:7.0
 export GO_EASY_ON_ME=1
 include theos/makefiles/common.mk
@@ -10,3 +10,6 @@ Lyricalizer_PRIVATE_FRAMEWORKS = MusicUI
 Lyricalizer_LDFLAGS = -lMobileGestalt
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+
+after-install::
+	install.exec "killall -9 Music MobileMusic"
