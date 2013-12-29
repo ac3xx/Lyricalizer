@@ -1,8 +1,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <MusicUI/MusicLyricsView.h>
 #import <MobileGestalt.h>
+#import "LyricalizerHeaders.h"
 
-static id * lastItem = nil;
+static MPMediaItem ** lastItem = nil;
 static NSString *baseURL = @"http://lyricalizer.ac3xx.com/";
 
 static NSString *NSStringURLEncode(NSString *string) {
@@ -25,8 +26,9 @@ static NSString *uniqueIdentifier() {
 	Class $MusicLyricsView = objc_getClass("MusicLyricsView");
 	UIView *cView = MSHookIvar<UIView*>(self, "_contentView");
 	MusicLyricsView *lyricsView = MSHookIvar<MusicLyricsView*>(self, "_lyricsView");
-	id item = MSHookIvar<id>(self, "_item");
-	id mediaItem = MSHookIvar<id>(item, "_mediaItem");
+	MPAVItem *item = MSHookIvar<MPAVItem*>(self, "_item");
+	MPMediaItem *mediaItem = MSHookIvar<MPMediaItem*>(item, "_mediaItem");
+
 	for (UIView *subv in cView.subviews) {
 		if ([subv isKindOfClass:[MusicLyricsView class]])
 			lyricsView = (MusicLyricsView*)subv;
@@ -143,9 +145,8 @@ static UITextView *lyricsView = nil;
 	}
 }
 
+%new
 - (void)imageSlideViewWasTapped {
-	UIView *imgView = MSHookIvar<UIView*>(self, "artImageView");
-
 	if ([[self infoPanel] alpha]==0 && [lyricsView alpha]==0) {
 		[self reloadLyrics];
 		[lyricsView setAlpha:1];
