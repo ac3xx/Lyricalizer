@@ -182,7 +182,6 @@ static UITextView *lyricsView = nil;
 }
 
 - (void)toggleInfoPanel {
-	%log;
 	if ([lyricsView alpha]==1) {
 		[lyricsView setAlpha:0];
 	}
