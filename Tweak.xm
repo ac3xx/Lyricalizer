@@ -1,21 +1,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <MusicUI/MusicLyricsView.h>
-#import <MobileGestalt.h>
 #import "LyricalizerHeaders.h"
 
-static MPMediaItem ** lastItem = nil;
+static MPMediaItem **lastItem = nil;
 static NSString *baseURL = @"http://lyricalizer.ac3xx.com/";
 
 static NSString *NSStringURLEncode(NSString *string) {
-    return (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)string, NULL, CFSTR("!*'();:@&=+$,/?%#[]"), kCFStringEncodingUTF8);
-}
-
-static NSString *uniqueIdentifier() {
-    CFPropertyListRef value = MGCopyAnswer(kMGUniqueDeviceID);
-	NSString *udid = (NSString*)value;
-	CFRelease(value);
-
-    return udid;
+	return (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)string, NULL, CFSTR("!*'();:@&=+$,/?%#[]\" "), kCFStringEncodingUTF8);
 }
 
 %hook MusicNowPlayingViewController
@@ -41,8 +32,11 @@ static NSString *uniqueIdentifier() {
 		[lyricsView setHidden:!lyricsView.hidden animated:YES];
 	else {
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		NSString *song = [mediaItem valueForProperty:MPMediaItemPropertyTitle];
+		NSString *song = [[mediaItem valueForProperty:MPMediaItemPropertyTitle] retain];
     	NSString *artist = ([mediaItem valueForProperty:MPMediaItemPropertyAlbumArtist])?:[mediaItem valueForProperty:MPMediaItemPropertyArtist];
+    	[artist retain];
+    	if (!song) song=@"";
+    	if (!artist) artist=@"";
 		lastItem = &mediaItem;
 		CGRect frame = cView.frame;
 		lyricsView = [[$MusicLyricsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
@@ -55,7 +49,7 @@ static NSString *uniqueIdentifier() {
 			[lyricsView setText:@"Fetching lyrics..."];
 			dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
 		    dispatch_async(queue, ^{
-		    	NSString *format = [NSString stringWithFormat:@"?song=%@&artist=%@&uuid=%@", NSStringURLEncode(song), NSStringURLEncode(artist), uniqueIdentifier()];
+		    	NSString *format = [NSString stringWithFormat:@"?song=%@&artist=%@&uuid=music", NSStringURLEncode(song), NSStringURLEncode(artist)];
 		    	NSString *url = [NSString stringWithFormat:@"%@%@", baseURL, format];
 
 		    	// Send a synchronous request
@@ -83,9 +77,8 @@ static NSString *uniqueIdentifier() {
 		}
 
 		[lyricsView setHidden:NO animated:YES];
-		
-		[cView addSubview:(UIView*)lyricsView];
-		[lyricsView release];
+
+		[cView addSubview:lyricsView];
 	}
 }
 
