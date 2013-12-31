@@ -1,3 +1,7 @@
+@interface MusicNowPlayingViewController : UIViewController
+- (void)loadLyricView;
+@end
+
 @interface MPAVItem : NSObject {
 	MPMediaItem *_mediaItem;
 }

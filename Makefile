@@ -14,4 +14,4 @@ Lyricalizer_PRIVATE_FRAMEWORKS = MusicUI
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
-	install.exec "killall -9 Music MobileMusic"
+	install.exec "killall -9 Music MobileMusic Spotify"

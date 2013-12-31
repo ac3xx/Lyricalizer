@@ -1,19 +1,34 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <MusicUI/MusicLyricsView.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
 #import "LyricalizerHeaders.h"
 
-static MPMediaItem **lastItem = nil;
+static MPMediaItem *lastItem = nil;
 static NSString *baseURL = @"http://lyricalizer.ac3xx.com/";
+static BOOL hasTapped = NO;
 
 static NSString *NSStringURLEncode(NSString *string) {
 	return (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)string, NULL, CFSTR("!*'();:@&=+$,/?%#[]\" "), kCFStringEncodingUTF8);
 }
 
+
+%hook MusicLyricsView
+
+- (void)setText:(NSString*)text {
+	%log;
+	%orig;
+}
+
+%end
+
+
 %hook MusicNowPlayingViewController
 
 // This is called when the user taps the view to view the lyrics. Replaced with custom handler.
 
-- (void)_tapAction:(id)arg1 {
+%new
+- (void)loadLyricView {
 	Class $MusicLyricsView = objc_getClass("MusicLyricsView");
 	UIView *cView = MSHookIvar<UIView*>(self, "_contentView");
 	MusicLyricsView *lyricsView = MSHookIvar<MusicLyricsView*>(self, "_lyricsView");
@@ -25,10 +40,13 @@ static NSString *NSStringURLEncode(NSString *string) {
 			lyricsView = (MusicLyricsView*)subv;
 	}
 
-	if (lastItem && lastItem != &mediaItem)
-		lyricsView = nil;
+	if (!hasTapped && lyricsView && !lyricsView.hidden)
+		[lyricsView setHidden:YES animated:YES];
 
-	if (lyricsView)
+	if (!hasTapped)
+		return;
+
+	if (lyricsView && lastItem && lastItem == mediaItem)
 		[lyricsView setHidden:!lyricsView.hidden animated:YES];
 	else {
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -37,10 +55,12 @@ static NSString *NSStringURLEncode(NSString *string) {
     	[artist retain];
     	if (!song) song=@"";
     	if (!artist) artist=@"";
-		lastItem = &mediaItem;
+		lastItem = [mediaItem retain];
 		CGRect frame = cView.frame;
-		lyricsView = [[$MusicLyricsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-		[lyricsView setHidden:YES animated:NO];
+		if (!lyricsView) {
+			lyricsView = [[$MusicLyricsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+			[lyricsView setHidden:YES animated:NO];
+		}
 		if ([item lyrics] && ![[item lyrics] isEqualToString:@""])
 			[lyricsView setText:[item lyrics]];
 		else if ([defaults objectForKey:[NSString stringWithFormat:@"%@-%@", song, artist]])
@@ -82,10 +102,28 @@ static NSString *NSStringURLEncode(NSString *string) {
 	}
 }
 
+- (void)_tapAction:(id)arg1 {
+	hasTapped = !hasTapped;
+	[self loadLyricView];
+}
+
+- (void)_updateTitles {
+	[self loadLyricView];
+	%orig;
+}
+
+
 %end
 
 
 // Spotify integration, finally!
+// iPhone/iPod Touch only for the moment
+// Because Spotify's iPad UI doesn't work well with lyrics
+
+
+%group SpotifyPhone
+
+
 static UITextView *lyricsView = nil;
 %hook ImageSlideView
 
@@ -95,6 +133,7 @@ static UITextView *lyricsView = nil;
 }
 
 %end
+
 
 %hook NowPlayingViewControllerIPhone
 
@@ -151,22 +190,29 @@ static UITextView *lyricsView = nil;
 	}
 }
 
-- (void)viewDidAppear:(BOOL)arg1 {
+- (void)viewDidAppear:(BOOL)animated {
 	%orig;
-	lyricsView = [[UITextView alloc] initWithFrame:[(UIView*)[self infoPanel] frame]];
-	[lyricsView setAlpha:0];
-	[lyricsView setUserInteractionEnabled:YES];
-	[lyricsView setEditable:NO];
-	[lyricsView setTextColor:[UIColor whiteColor]];
-	[lyricsView setTextAlignment:NSTextAlignmentCenter];
-	[lyricsView setFont:[UIFont systemFontOfSize:14.0f]];
-	[lyricsView setTextContainerInset:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
-	[lyricsView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
-	UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
-	[tapRec setNumberOfTapsRequired:1];
-	[lyricsView addGestureRecognizer:tapRec];
+	if (!lyricsView) {
+		lyricsView = [[UITextView alloc] initWithFrame:[(UIView*)[self infoPanel] frame]];
+		[lyricsView setAlpha:0];
+		[lyricsView setUserInteractionEnabled:YES];
+		[lyricsView setEditable:NO];
+		[lyricsView setTextColor:[UIColor whiteColor]];
+		[lyricsView setTextAlignment:NSTextAlignmentCenter];
+		[lyricsView setFont:[UIFont systemFontOfSize:14.0f]];
+		[lyricsView setTextContainerInset:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+		[lyricsView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
+		UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
+		[tapRec setNumberOfTapsRequired:1];
+		[lyricsView addGestureRecognizer:tapRec];
+	}
 	UIView *imgView = MSHookIvar<UIView*>(self, "artImageView");
 	[imgView addSubview:lyricsView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+	%orig;
+	[lyricsView setAlpha:0];
 }
 
 %new
@@ -181,4 +227,20 @@ static UITextView *lyricsView = nil;
 	%orig;
 }
 
+
 %end
+
+%end
+
+
+%ctor {
+	size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = (char*)malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithUTF8String:machine];
+    free(machine);
+    %init
+    if ([platform rangeOfString:@"iPad"].location == NSNotFound)
+		%init(SpotifyPhone)
+}
