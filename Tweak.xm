@@ -13,16 +13,6 @@ static NSString *NSStringURLEncode(NSString *string) {
 }
 
 
-%hook MusicLyricsView
-
-- (void)setText:(NSString*)text {
-	%log;
-	%orig;
-}
-
-%end
-
-
 %hook MusicNowPlayingViewController
 
 // This is called when the user taps the view to view the lyrics. Replaced with custom handler.
