@@ -1,0 +1,1408 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"deleg",
+				"delegateAsResponder"
+			],
+			[
+				"NSS",
+				"NSStringFromCGRect"
+			],
+			[
+				"NSTS",
+				"NSStringFromCGPoint"
+			],
+			[
+				"bounds",
+				"boundsCheck"
+			],
+			[
+				"overr",
+				"overrideCC"
+			],
+			[
+				"shif",
+				"shiftHeld"
+			],
+			[
+				"piv",
+				"pivotPoint"
+			],
+			[
+				"UIGest",
+				"UIGestureRecognizerStateEnded"
+			],
+			[
+				"UIGestureReco",
+				"UIGestureRecognizerStatePossible"
+			],
+			[
+				"shuo",
+				"shouldKeep"
+			],
+			[
+				"should",
+				"shouldKeep"
+			],
+			[
+				"curso",
+				"cursorType"
+			],
+			[
+				"NS",
+				"NSDictionary"
+			],
+			[
+				"A",
+				"AKSettingsManager"
+			],
+			[
+				"load",
+				"loadSpecifiersFromPlistName"
+			],
+			[
+				"veloic",
+				"velocityInView"
+			],
+			[
+				"cach",
+				"cacheData"
+			],
+			[
+				"Altk",
+				"AltKeyboard"
+			],
+			[
+				"_keyplan",
+				"_keyplaneView"
+			],
+			[
+				"removeFrom",
+				"removeFromSuperlayer"
+			],
+			[
+				"respondsT",
+				"respondsToSelector"
+			],
+			[
+				"IOSur",
+				"IOSurfaceRef"
+			],
+			[
+				"IOSu",
+				"IOSurfaceRef"
+			],
+			[
+				"NSString",
+				"NSStringFromCGRect"
+			],
+			[
+				"varian",
+				"variantWidth"
+			],
+			[
+				"symbol",
+				"symbolFrame"
+			],
+			[
+				"NSStr",
+				"NSStringFromCGRect"
+			],
+			[
+				"NSStrin",
+				"NSStringFromCGRect"
+			],
+			[
+				"NSStringFro",
+				"NSStringFromCGPoint"
+			],
+			[
+				"object",
+				"objectForKey"
+			],
+			[
+				"arrow",
+				"arrowFrame"
+			],
+			[
+				"UIKeyboard",
+				"UIKeyboardCache"
+			],
+			[
+				"NO",
+				"NO"
+			],
+			[
+				"curr",
+				"currShiftKey"
+			],
+			[
+				"reta",
+				"retainCount"
+			],
+			[
+				"grabber",
+				"grabberLayerL"
+			],
+			[
+				"space",
+				"spaceKey1"
+			],
+			[
+				"spacek",
+				"spaceKey"
+			],
+			[
+				"spaceke",
+				"spaceKey3"
+			],
+			[
+				"CGPoi",
+				"CGPoint"
+			],
+			[
+				"Delee",
+				"Delete-Key"
+			],
+			[
+				"perform",
+				"performSelectorOnMainThread"
+			],
+			[
+				"undo",
+				"undoManager"
+			],
+			[
+				"undO",
+				"undoManager"
+			],
+			[
+				"flick",
+				"flickCancelled"
+			],
+			[
+				"flic",
+				"flickCancelled"
+			],
+			[
+				"seel",
+				"selectionHandler"
+			],
+			[
+				"removeFromS",
+				"removeFromSuperview"
+			],
+			[
+				"exe",
+				"executionQueue"
+			],
+			[
+				"CGP",
+				"CGPoint"
+			],
+			[
+				"CGRe",
+				"CGRect"
+			],
+			[
+				"UIText",
+				"UITextPosition"
+			],
+			[
+				"CGRect",
+				"CGRectMake"
+			],
+			[
+				"CGContextR",
+				"CGContextRestoreGState"
+			],
+			[
+				"rectan",
+				"rectanglePath"
+			],
+			[
+				"CGContext",
+				"CGContextSaveGState"
+			],
+			[
+				"mask",
+				"maskPath"
+			],
+			[
+				"shadow",
+				"shadowLayer"
+			],
+			[
+				"shoudl",
+				"shouldReload"
+			],
+			[
+				"displ",
+				"displayLink"
+			],
+			[
+				"displa",
+				"displayLinkWithTarget"
+			],
+			[
+				"inner",
+				"innerView"
+			],
+			[
+				"UIImage",
+				"UIImageView"
+			],
+			[
+				"UI",
+				"UIWindow"
+			],
+			[
+				"CGPoint",
+				"CGPointMake"
+			],
+			[
+				"init",
+				"initWithFrame"
+			],
+			[
+				"Alt",
+				"AltKeyboard"
+			],
+			[
+				"selec",
+				"selectionHandler"
+			],
+			[
+				"AK",
+				"AKEdgeGestureRecognizer"
+			],
+			[
+				"shoul",
+				"shouldKeep"
+			],
+			[
+				"location",
+				"locationInView"
+			],
+			[
+				"grabb",
+				"grabberLayer"
+			],
+			[
+				"isSp",
+				"isSpace2"
+			],
+			[
+				"select",
+				"selectedRange"
+			],
+			[
+				"all",
+				"all"
+			],
+			[
+				"spaceK",
+				"spaceKey2"
+			],
+			[
+				"text",
+				"textSelected"
+			],
+			[
+				"spac",
+				"spaceKey1"
+			],
+			[
+				"UITex",
+				"UITextRange"
+			],
+			[
+				"selection",
+				"selectionView"
+			],
+			[
+				"tou",
+				"touchesEnded"
+			],
+			[
+				"isSpac",
+				"isSpace2"
+			],
+			[
+				"isSpa",
+				"isSpace2"
+			],
+			[
+				"iSS",
+				"isSpace2"
+			],
+			[
+				"or",
+				"origin"
+			],
+			[
+				"NSSr",
+				"NSStringFromCGRect"
+			],
+			[
+				"active",
+				"activeInstance"
+			],
+			[
+				"high",
+				"highlightedVariantIndex"
+			],
+			[
+				"isspac",
+				"isSpace2"
+			],
+			[
+				"_keypla",
+				"_keyplaneView"
+			],
+			[
+				"ove",
+				"overrideInput"
+			],
+			[
+				"UIKey",
+				"UIKeyboardImpl"
+			],
+			[
+				"pop",
+				"popupBias"
+			],
+			[
+				"CGRec",
+				"CGRect"
+			],
+			[
+				"CGPo",
+				"CGPointMake"
+			],
+			[
+				"NSSt",
+				"NSStringFromCGRect"
+			],
+			[
+				"pa",
+				"panGesture"
+			],
+			[
+				"touches",
+				"touchesMoved"
+			],
+			[
+				"UIKBRende",
+				"UIKBRenderTraits"
+			],
+			[
+				"int",
+				"interface"
+			],
+			[
+				"KBdisplay",
+				"KBdisplayString"
+			],
+			[
+				"KBdisp",
+				"KBdisplayString"
+			],
+			[
+				"prop",
+				"properties"
+			],
+			[
+				"NSStringf",
+				"NSStringFromBOOL"
+			],
+			[
+				"disl",
+				"displayString"
+			],
+			[
+				"variant-",
+				"variant-popup-bias"
+			],
+			[
+				"isdele",
+				"isDeleteKey"
+			],
+			[
+				"isDele",
+				"isDeleteKey"
+			],
+			[
+				"Delete",
+				"Delete-Key"
+			],
+			[
+				"NSSTr",
+				"NSStringFromClass"
+			],
+			[
+				"altkey",
+				"altKeyplane"
+			],
+			[
+				"KBRe",
+				"KBrepresentedStringAlt"
+			],
+			[
+				"UIKBKey",
+				"UIKBKeyplaneView"
+			],
+			[
+				"shift",
+				"shiftLocked"
+			],
+			[
+				"keyplane",
+				"keyplaneNamed"
+			],
+			[
+				"altS",
+				"altSKeyplane"
+			],
+			[
+				"keyplan",
+				"keyplaneNamed"
+			],
+			[
+				"keyboard",
+				"keyboardLayout"
+			],
+			[
+				"altern",
+				"alternateKeyTree"
+			],
+			[
+				"has",
+				"hasFlicked"
+			],
+			[
+				"chec",
+				"check3"
+			],
+			[
+				"acti",
+				"activeInstance"
+			],
+			[
+				"subvie",
+				"subviews"
+			],
+			[
+				"ALTCAC",
+				"ALTCACHE_TAG"
+			],
+			[
+				"altSt",
+				"altStr"
+			],
+			[
+				"cur",
+				"currentLocale"
+			],
+			[
+				"hasPre",
+				"hasPressed"
+			],
+			[
+				"_key",
+				"_keyCaps"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Tweak.xm",
+			"settings":
+			{
+				"buffer_size": 7935,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 434,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/Theos.sublime-build",
+	"command_palette":
+	{
+		"height": 225.0,
+		"selected_items":
+		[
+			[
+				"gitpus",
+				"Git: Push"
+			],
+			[
+				"gist",
+				"Git: Status"
+			],
+			[
+				"gitsta",
+				"Git: Status"
+			],
+			[
+				"objc",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"obj",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"gitst",
+				"Git: Status"
+			],
+			[
+				"gitp",
+				"Git: Push"
+			],
+			[
+				"gitpush",
+				"Git: Push"
+			],
+			[
+				"ovj",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"gitpu",
+				"Git: Push"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"gitc",
+				"Git: Checkout Commit"
+			],
+			[
+				"gitch",
+				"Git: Checkout Commit"
+			],
+			[
+				"gitstat",
+				"Git: Status"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"gitbr",
+				"Git: Checkout New Branch"
+			],
+			[
+				"gitoc",
+				"Git: Commit"
+			],
+			[
+				"gitme",
+				"Git: Merge"
+			],
+			[
+				"gitmer",
+				"Git: Merge"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"gitcom",
+				"Git: Commit"
+			],
+			[
+				"gitnew",
+				"Git: Checkout New Branch"
+			],
+			[
+				"git",
+				"Git: Checkout"
+			],
+			[
+				"gista",
+				"Git: Status"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"gico",
+				"Git: Commit"
+			],
+			[
+				"pin",
+				"Package Control: Install Package"
+			],
+			[
+				"pins",
+				"Package Control: Install Package"
+			],
+			[
+				"gistat",
+				"Git: Status"
+			],
+			[
+				"gpush",
+				"Git: Push"
+			],
+			[
+				"gipus",
+				"Git: Push"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"objec",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"co",
+				"Color picker"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"obje",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"snima",
+				"Snippet: main()"
+			],
+			[
+				"snipma",
+				"Snippet: main()"
+			],
+			[
+				"main",
+				"Snippet: main()"
+			],
+			[
+				"snipp",
+				"Snippet: main()"
+			],
+			[
+				"upgra",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"snippet",
+				"Snippet: New Article"
+			],
+			[
+				"sn",
+				"Snippet: New Article"
+			],
+			[
+				"sftp",
+				"SFTP: Cancel Upload"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"subl",
+				"Preferences: SublimeLint Settings – User"
+			],
+			[
+				"sublime",
+				"SublimeLint: Next Error"
+			],
+			[
+				"lint",
+				"SublimeLint: Show All Errors"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 165.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/.gitignore",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/keyboardapp/Resources/Default-568h@2x.png",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/Tweak.xm",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2.zip",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/AltKeyboard2PrefsHelper.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/Resources/Info.plist",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/Resources/en.lproj/Localizable.strings",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AKSelectionHandler.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AKEdgeGestureRecognizer",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AKPanGestureRecognizer.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AKPanGestureRecognizer.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/Makefile",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/Globals.h",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/Users/James/Dropbox/AltKeyboard 2/Cursor Swipe via Grabbers.png",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AltKeyboard 2.sublime-workspace",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/Makefile",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AltKeyboard2.plist",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AltKeyboardHeaders.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/layout/Library/PreferenceLoader/Preferences/AltKeyboard2.plist",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/Resources/AltKeyboard2.plist",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/AltKeyboard2PrefsController.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/AltKeyboard2ProfileController.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2settings/Globals.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/theos/include/UIKit/UIKBAttribute.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/theos/include/UIKit/UITextInputArrowKeyHistory.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/theos/include/UIKit/UIBarItem2.h",
+		"/Users/James/Documents/headers/altkeyboard/headers/UIFieldEditor.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/UIImage+Overlay.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/UIImage+Overlay.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2/AltKeyboard2PrefsHelper.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2/AltKeyboard2PrefsController.m",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/altkeyboard2/Makefile",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/theos/include/UIKit/UIKeyboardSpaceKeyView.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/theos/include/UIKit/UIWebSelectPeripheral.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/theos/include/substrate.h",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/layout/DEBIAN/control",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/Resources/test.txt",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/User/Theos.sublime-build",
+		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/AltKeyboard 2.sublime-project",
+		"/private/tmp/digg-digg/js/diggdigg-floating-bar.js",
+		"/Users/James/Documents/School/Year 13/Physics/Unit 4.tex",
+		"/Users/James/Documents/Business/GyreSoft/test/logs.xm",
+		"/Users/James/Documents/headers/altkeyboard/headers/UIKBSplitImageView.h",
+		"/Users/James/Documents/Business/GyreSoft/lyricalizer_api/lyric_scrape/scrapy.cfg",
+		"/Users/James/Documents/Business/Personal/Site/index.html",
+		"/Users/James/Documents/Business/Personal/Site/normalize.css",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Applications/Sublime Text.app/Contents/MacOS/Packages/C++.sublime-package",
+		"/Users/James/Movies/ncis.txt",
+		"/Users/James/Documents/School/Year 13/Maths/C3 Calculus.tex",
+		"/Users/James/Documents/School/Year 13/Maths/M2.tex",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/LaTeXing/LaTeX.sublime-build",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/Users/James/Desktop/ucas.py",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/sublimelint/SublimeLint.sublime-settings",
+		"/Users/James/Library/Application Support/Sublime Text 3/Packages/User/SublimeLint.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"caretrect",
+			"setspaceframe",
+			"[currspacekey",
+			"currspacekey = ",
+			"currspacekey",
+			"shiftheld",
+			"shiftheld = ",
+			"shiftheld",
+			"pivotPoint",
+			"cursorType",
+			"NSArray",
+			"sharedManager",
+			"string",
+			"Green",
+			"Yellow",
+			"Blue",
+			"loadSpecifiersFromPlistName",
+			"CREATORS",
+			"showGrabbers",
+			"showgrabb",
+			"100.0f",
+			"_position",
+			"altkb2_addinputst",
+			"MOVE_DOWN_BY",
+			"keyplane = ",
+			"\"paste\"",
+			"Select All",
+			"All",
+			"Select All",
+			"select\"",
+			"flick",
+			"keyplane",
+			"displaystri",
+			"@\".\":",
+			"addoverl",
+			"setstate",
+			"isipad",
+			"setstate",
+			"kautola",
+			"geometry",
+			"kbreprese",
+			"uikbtree",
+			"16",
+			"setstate",
+			"800",
+			"traits",
+			"800",
+			"\"arrow\"",
+			"currShiftKey",
+			"layoutsub",
+			"layoutsubvi",
+			"_isEmptySelection",
+			"selectedTextRange",
+			"%log",
+			"nslog",
+			"touchdown",
+			"MOVE_DOWN_",
+			"geometry",
+			"arrow\"",
+			"freeeedddoooommm",
+			"freedom",
+			"nslog",
+			"geom",
+			"addinputstring",
+			"addinput",
+			"autocorrect",
+			"spacegeome",
+			"geometry",
+			"arrow\"",
+			"space-key",
+			"arrow\"",
+			"delete-key",
+			"ShouldReplaceForKeyboardType",
+			"uikbkeyview",
+			"font",
+			"layoutsubv",
+			"currshift",
+			"textsel",
+			"textselected = ",
+			"define",
+			"dismiss",
+			"setstate",
+			"layoutsubviews",
+			"layout",
+			"showgrabber",
+			"release",
+			"showgrabbers",
+			"showgrabb",
+			"akselectionhandler",
+			"touchdown",
+			"ShouldAdjustForKeyplane",
+			"keyplane",
+			"uikbkeyplaneview",
+			"uikbblurred",
+			"uikbblur",
+			"uikbblurred",
+			"layoutsubviews",
+			"uikbblurredkeyview",
+			"delegateas",
+			"isvertical",
+			"= 4",
+			"spacekey3",
+			"spacekey",
+			"text",
+			"textselected",
+			"dismiss",
+			"nslog",
+			"nlsog",
+			"currdeleteke",
+			"undo",
+			"sethidden:ye",
+			"uikbkeyplaneview",
+			"currdeletekey",
+			"undo",
+			"currre",
+			"kbicon",
+			"altkb2_associateKeysWithAlternate",
+			"setstate",
+			"override",
+			"currreturnkey",
+			"isequaltostring",
+			"currReturnKey",
+			"setneedslayout",
+			"setneedsla",
+			"keyboardlayout",
+			"keyboardLayout",
+			"autocorrectpro",
+			"setkeyplane"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"//%log",
+			"//NSLog",
+			"//%log",
+			"//AKLOG",
+			"//NSLog",
+			"//%log",
+			"AKLOG",
+			"<?php echo ",
+			"\\end{equation*}",
+			"\\begin{equation*}",
+			"&amp;"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Tweak.xm",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7208,
+								7208
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/User/Logos.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2617.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 434,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.csslint_result_view":
+	{
+		"height": 178.0
+	},
+	"output.exec":
+	{
+		"height": 141.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-checkout":
+	{
+		"height": 102.0
+	},
+	"output.git-commit":
+	{
+		"height": 102.0
+	},
+	"output.git-pull":
+	{
+		"height": 102.0
+	},
+	"output.git-push":
+	{
+		"height": 102.0
+	},
+	"output.sftp":
+	{
+		"height": 207.0
+	},
+	"project": "Lyricalizer.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"wp-content/themes/brookers/header.php"
+			],
+			[
+				"footer.p",
+				"wp-content/themes/brookers/footer.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 49.0,
+		"selected_items":
+		[
+		],
+		"width": 378.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

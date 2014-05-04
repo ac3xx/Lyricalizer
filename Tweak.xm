@@ -125,6 +125,124 @@ static UITextView *lyricsView = nil;
 %end
 
 
+%hook SPTNowPlayingView
+
+static NSString *artistName = nil;
+static NSString *songName = nil;
+
+- (id)initWithFrame:(CGRect)frame andConnectButton:(id)button {
+// -(void)updateConstraintsForInfoContainerHidden:(BOOL)infoContainerHidden {
+	if (self = %orig) {
+		if (!lyricsView) {
+			lyricsView = [[UITextView alloc] initWithFrame:[[self coverArtView] frame]];
+			[lyricsView setAlpha:0];
+			[lyricsView setUserInteractionEnabled:YES];
+			[lyricsView setEditable:NO];
+			[lyricsView setTextColor:[UIColor whiteColor]];
+			[lyricsView setTextAlignment:NSTextAlignmentCenter];
+			[lyricsView setFont:[UIFont systemFontOfSize:14.0f]];
+			[lyricsView setTextContainerInset:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+			[lyricsView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
+		}
+		UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
+		[tapRec setNumberOfTapsRequired:1];
+		[lyricsView addGestureRecognizer:tapRec];
+		UITapGestureRecognizer *tapRec2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
+		[tapRec2 setNumberOfTapsRequired:1];
+		[[[self coverArtView] coverArtView] addGestureRecognizer:tapRec2];
+		NSLog(@"VIEW DID APPEAR %@", lyricsView);
+		// UIView *imgView = MSHookIvar<UIView*>(self, "coverArtView");
+		[self addSubview:lyricsView];
+	}
+	return self;
+}
+
+%new
+- (void)reloadLyrics {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSString *song = songName;
+	NSString *artist = artistName;
+	if ([defaults objectForKey:[NSString stringWithFormat:@"%@-%@", song, artist]])
+		[lyricsView setText:[defaults objectForKey:[NSString stringWithFormat:@"%@-%@", song, artist]]];
+	else {
+		[lyricsView setText:@"Fetching lyrics..."];
+		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+	    dispatch_async(queue, ^{
+	    	NSString *format = [NSString stringWithFormat:@"?song=%@&artist=%@&uuid=spotify", NSStringURLEncode(song), NSStringURLEncode(artist)];
+	    	NSString *url = [NSString stringWithFormat:@"%@%@", baseURL, format];
+
+	    	// Send a synchronous request
+			NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+			NSURLResponse * response = nil;
+			NSError * error = nil;
+			NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+			                                          returningResponse:&response
+			                                                      error:&error];
+			NSString *lyrs = @"An error occured.";
+			if (error == nil)
+			{
+			    // Parse data here
+				lyrs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+				lyrs = [lyrs stringByReplacingOccurrencesOfString:@"\r\n" withString:@"\n"];
+				if([lyrs rangeOfString:@"No lyrics found."].location == NSNotFound)
+					[defaults setObject:lyrs forKey:[NSString stringWithFormat:@"%@-%@", song, artist]];
+					[defaults synchronize];
+			}
+
+	        dispatch_sync(dispatch_get_main_queue(), ^{
+	        	if ([songName isEqualToString:song]&&[artistName isEqualToString:artist])
+		            [lyricsView setText:lyrs];
+	        });
+	    });
+	}
+}
+
+%new
+- (void)imageSlideViewWasTapped {
+	NSLog(@"%@", NSStringFromCGRect([self frame]));
+	CGRect fr = [[self coverArtView] frame];
+	fr.origin.x = 5;
+	// fr.origin.y = 0;
+	fr.size.width = 320.0f;
+	[lyricsView setFrame:fr];
+	if (/*[[self infoPanel] alpha]==0 && */[lyricsView alpha]==0) {
+		[self reloadLyrics];
+		[lyricsView setAlpha:1];
+	} else if ([lyricsView alpha]==1) {
+		[lyricsView setAlpha:0];
+		// [[self infoPanel] setAlpha:1];
+	// } else {
+		// [[self infoPanel] setAlpha:0];
+	}
+}
+
+- (void)updateMetadataLabelsWithTrackTitle:(id)arg1 artistTitle:(id)arg2 advertiserTitle:(id)arg3 {
+	%log;
+	songName = [arg1 retain];
+	artistName = [arg2 retain];
+	%orig;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+	%orig;
+	[lyricsView setAlpha:0];
+}
+
+%new
+- (void)lyricsViewTapped:(id)sender {
+	[self imageSlideViewWasTapped];
+}
+
+- (void)toggleInfoPanel {
+	if ([lyricsView alpha]==1) {
+		[lyricsView setAlpha:0];
+	}
+	%orig;
+}
+
+%end
+
+
 %hook NowPlayingViewControllerIPhone
 
 %new
@@ -196,6 +314,7 @@ static UITextView *lyricsView = nil;
 		[tapRec setNumberOfTapsRequired:1];
 		[lyricsView addGestureRecognizer:tapRec];
 	}
+	NSLog(@"VIEW DID APPEAR %@", lyricsView);
 	UIView *imgView = MSHookIvar<UIView*>(self, "artImageView");
 	[imgView addSubview:lyricsView];
 }
