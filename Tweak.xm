@@ -199,7 +199,7 @@ static NSString *songName = nil;
 
 %new
 - (void)imageSlideViewWasTapped {
-	NSLog(@"%@", NSStringFromCGRect([self frame]));
+	// NSLog(@"%@", NSStringFromCGRect([self frame]));
 	CGRect fr = [[self coverArtView] frame];
 	fr.origin.x = 5;
 	// fr.origin.y = 0;
@@ -221,6 +221,7 @@ static NSString *songName = nil;
 	songName = [arg1 retain];
 	artistName = [arg2 retain];
 	%orig;
+	[self reloadLyrics];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
