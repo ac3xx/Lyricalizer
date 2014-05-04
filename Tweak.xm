@@ -344,12 +344,7 @@ static NSString *songName = nil;
 
 
 %ctor {
-	size_t size;
-    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
-    char *machine = (char*)malloc(size);
-    sysctlbyname("hw.machine", machine, &size, NULL, 0);
-    NSString *platform = [NSString stringWithUTF8String:machine];
-    free(machine);
+    NSString *platform = [[UIDevice currentDevice] model];
     %init
     if ([platform rangeOfString:@"iPad"].location == NSNotFound)
 		%init(SpotifyPhone)
