@@ -7,7 +7,7 @@ export THEOS_BUILD_DIR = ./debs
 include theos/makefiles/common.mk
 
 TWEAK_NAME = Lyricalizer
-Lyricalizer_FILES = Tweak.xm
+Lyricalizer_FILES = Tweak.xm LYManager.m
 Lyricalizer_FRAMEWORKS = MediaPlayer UIKit
 Lyricalizer_PRIVATE_FRAMEWORKS = MusicUI
 

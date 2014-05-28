@@ -26,3 +26,9 @@
 - (void)imageSlideViewWasTapped;
 @property(retain, nonatomic) UIView *infoPanel;
 @end
+
+@interface SPTNowPlayingView : UIView
+- (void)reloadLyrics;
+- (void)imageSlideViewWasTapped;
+- (SPTNowPlayingView*)coverArtView;
+@end

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"tap",
+				"tapRec2"
+			],
+			[
 				"deleg",
 				"delegateAsResponder"
 			],
@@ -510,10 +514,6 @@
 			[
 				"hasPre",
 				"hasPressed"
-			],
-			[
-				"_key",
-				"_keyCaps"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "Tweak.xm",
 			"settings":
 			{
-				"buffer_size": 7935,
+				"buffer_size": 11885,
 				"line_ending": "Unix"
 			}
 		},
@@ -534,24 +534,55 @@
 				"buffer_size": 434,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "control",
+			"settings":
+			{
+				"buffer_size": 277,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Remote:   github @ git@github.com:ac3xx/Lyricalizer.git\nLocal:    master ~/Documents/Business/GyreSoft/lyricalizer\nHead:     5c628ce Apparently the wiki is wrong\n\n\nNothing to commit (working directory clean)\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
+			"settings":
+			{
+				"buffer_size": 969,
+				"line_ending": "Unix",
+				"name": "*git-status*: lyricalizer",
+				"read_only": true,
+				"scratch": true
+			}
 		}
 	],
 	"build_system": "Packages/User/Theos.sublime-build",
 	"command_palette":
 	{
-		"height": 225.0,
+		"height": 291.0,
 		"selected_items":
 		[
+			[
+				"gitpu",
+				"Git: Push"
+			],
+			[
+				"gitst",
+				"Git: Status"
+			],
 			[
 				"gitpus",
 				"Git: Push"
 			],
 			[
-				"gist",
+				"gitsta",
 				"Git: Status"
 			],
 			[
-				"gitsta",
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"gitstat",
 				"Git: Status"
 			],
 			[
@@ -559,12 +590,12 @@
 				"Set Syntax: Objective-C"
 			],
 			[
-				"obj",
-				"Set Syntax: Objective-C"
+				"gist",
+				"Git: Status"
 			],
 			[
-				"gitst",
-				"Git: Status"
+				"obj",
+				"Set Syntax: Objective-C"
 			],
 			[
 				"gitp",
@@ -579,10 +610,6 @@
 				"Set Syntax: Objective-C"
 			],
 			[
-				"gitpu",
-				"Git: Push"
-			],
-			[
 				"gits",
 				"Git: Status"
 			],
@@ -593,14 +620,6 @@
 			[
 				"gitch",
 				"Git: Checkout Commit"
-			],
-			[
-				"gitstat",
-				"Git: Status"
-			],
-			[
-				"gitco",
-				"Git: Commit"
 			],
 			[
 				"gitbr",
@@ -780,6 +799,7 @@
 	},
 	"file_history":
 	[
+		"/Users/James/Documents/Business/GyreSoft/lyricalizer/control",
 		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/.gitignore",
 		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/keyboardapp/Resources/Default-568h@2x.png",
 		"/Users/James/Documents/Business/GyreSoft/altkeyboard2/Tweak.xm",
@@ -844,7 +864,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
@@ -1015,7 +1035,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1024,15 +1044,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7935,
+						"buffer_size": 11885,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7208,
-								7208
+								11784,
+								11784
 							]
 						],
 						"settings":
@@ -1144,11 +1164,11 @@
 							"remote_loading": false,
 							"sublime_auto_complete": true,
 							"synced": false,
-							"syntax": "Packages/User/Logos.tmLanguage",
+							"syntax": "Packages/Objective-C/Objective-C.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2617.0,
+						"translation.y": 4670.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1281,6 +1301,280 @@
 							"sublime_auto_complete": true,
 							"synced": false,
 							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "control",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 969,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"__vi_external_disable": true,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"draw_white_space": "none",
+							"git_repo": "/Users/James/Documents/Business/GyreSoft/lyricalizer",
+							"git_status": true,
+							"git_view": "status",
+							"incomplete_sync": null,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/SublimeGit/syntax/SublimeGit Status.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
