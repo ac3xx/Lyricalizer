@@ -5,11 +5,13 @@
 */
 
 #import <MediaPlayer/MediaPlayer.h>
-#import <MusicUI/MusicLyricsView.h>
+#import <MusicUI/MPULyricsView.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #import "LyricalizerHeaders.h"
 #import "LYManager.h"
+
+#define IOS_80 (kCFCoreFoundationVersionNumber >= 1129.15)
 
 static MPMediaItem *lastItem = nil;
 static BOOL hasTapped = NO;
@@ -17,7 +19,99 @@ static BOOL hasTapped = NO;
 
 
 
+%group iOS7
 %hook MusicNowPlayingViewController
+
+// This is called when the user taps the view to view the lyrics. Replaced with custom handler.
+
+%new
+- (void)lyricsReturned:(NSDictionary*)lyricsDict {
+	Class $MusicLyricsView = objc_getClass("MusicLyricsView");
+	MPAVItem *item = MSHookIvar<MPAVItem*>(self, "_item");
+	MPMediaItem *mediaItem = MSHookIvar<MPMediaItem*>(item, "_mediaItem");
+	NSString *song = [mediaItem valueForProperty:MPMediaItemPropertyTitle];
+	NSString *artist = ([mediaItem valueForProperty:MPMediaItemPropertyAlbumArtist])?:[mediaItem valueForProperty:MPMediaItemPropertyArtist];
+	NSArray *lyrArray = [lyricsDict objectForKey:@"lyrics"];
+	if (lyrArray && (![artist isEqualToString:[lyricsDict objectForKey:@"artist"]] && ![song isEqualToString:[lyricsDict objectForKey:@"song"]])) return;
+
+	NSString *lyrics = [lyrArray componentsJoinedByString:@"\n"];
+	if (!lyrics) lyrics = @"No lyrics found.";
+
+	id lyricsView = MSHookIvar<id>(self, "_lyricsView");
+	UIView *cView = MSHookIvar<UIView*>(self, "_contentView");
+
+	for (UIView *subv in cView.subviews) {
+		if ([subv isKindOfClass:[$MusicLyricsView class]])
+			lyricsView = subv;
+	}
+
+	[lyricsView setText:lyrics];
+	[lyricsView setHidden:NO animated:YES];
+}
+
+%new
+- (void)loadLyricView {
+	Class $MusicLyricsView = objc_getClass("MusicLyricsView");
+	UIView *cView = MSHookIvar<UIView*>(self, "_contentView");
+	id lyricsView = MSHookIvar<id>(self, "_lyricsView");
+	MPAVItem *item = MSHookIvar<MPAVItem*>(self, "_item");
+	MPMediaItem *mediaItem = MSHookIvar<MPMediaItem*>(item, "_mediaItem");
+
+	for (UIView *subv in cView.subviews) {
+		if ([subv isKindOfClass:[$MusicLyricsView class]])
+			lyricsView = subv;
+	}
+
+	if (!hasTapped && lyricsView && ![lyricsView isHidden])
+		[lyricsView setHidden:YES animated:YES];
+
+	if (!hasTapped)
+		return;
+
+	if (lyricsView && lastItem && lastItem == mediaItem)
+		[lyricsView setHidden:YES animated:YES];
+	else {
+		NSString *song = [[mediaItem valueForProperty:MPMediaItemPropertyTitle] retain];
+    	NSString *artist = [([mediaItem valueForProperty:MPMediaItemPropertyAlbumArtist])?:[mediaItem valueForProperty:MPMediaItemPropertyArtist] retain];
+    	if (!song) song=@"";
+    	if (!artist) artist=@"";
+		lastItem = [mediaItem retain];
+		CGRect frame = cView.frame;
+		if (!lyricsView) {
+			lyricsView = [[$MusicLyricsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+			[lyricsView setHidden:NO animated:NO];
+		}
+
+		if ([lyricsView superview] != cView)
+			[cView addSubview:lyricsView];
+		[lyricsView setText:@"Fetching lyrics..."];
+
+		if ([item lyrics] && ![[item lyrics] isEqualToString:@""])
+			[lyricsView setText:[item lyrics]];
+		else {
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+				[[LYManager sharedInstance] fetchLyricsWithSong:song andArtist:artist andTarget:self andSelector:@selector(lyricsReturned:)];
+			});
+		}
+	}
+}
+
+- (void)_tapAction:(id)arg1 {
+	hasTapped = !hasTapped;
+	[self loadLyricView];
+}
+
+- (void)_updateTitles {
+	%orig;
+	[self loadLyricView];
+}
+
+
+%end
+%end
+
+%group iOS8
+%hook MPUNowPlayingViewController
 
 // This is called when the user taps the view to view the lyrics. Replaced with custom handler.
 
@@ -33,12 +127,12 @@ static BOOL hasTapped = NO;
 	NSString *lyrics = [lyrArray componentsJoinedByString:@"\n"];
 	if (!lyrics) lyrics = @"No lyrics found.";
 
-	MusicLyricsView *lyricsView = MSHookIvar<MusicLyricsView*>(self, "_lyricsView");
+	MPULyricsView *lyricsView = MSHookIvar<MPULyricsView*>(self, "_lyricsView");
 	UIView *cView = MSHookIvar<UIView*>(self, "_contentView");
 
 	for (UIView *subv in cView.subviews) {
-		if ([subv isKindOfClass:[MusicLyricsView class]])
-			lyricsView = (MusicLyricsView*)subv;
+		if ([subv isKindOfClass:[MPULyricsView class]])
+			lyricsView = (MPULyricsView*)subv;
 	}
 
 	[lyricsView setText:lyrics];
@@ -47,15 +141,15 @@ static BOOL hasTapped = NO;
 
 %new
 - (void)loadLyricView {
-	Class $MusicLyricsView = objc_getClass("MusicLyricsView");
+	Class $MPULyricsView = objc_getClass("MPULyricsView");
 	UIView *cView = MSHookIvar<UIView*>(self, "_contentView");
-	MusicLyricsView *lyricsView = MSHookIvar<MusicLyricsView*>(self, "_lyricsView");
+	MPULyricsView *lyricsView = MSHookIvar<MPULyricsView*>(self, "_lyricsView");
 	MPAVItem *item = MSHookIvar<MPAVItem*>(self, "_item");
 	MPMediaItem *mediaItem = MSHookIvar<MPMediaItem*>(item, "_mediaItem");
 
 	for (UIView *subv in cView.subviews) {
-		if ([subv isKindOfClass:[MusicLyricsView class]])
-			lyricsView = (MusicLyricsView*)subv;
+		if ([subv isKindOfClass:[MPULyricsView class]])
+			lyricsView = (MPULyricsView*)subv;
 	}
 
 	if (!hasTapped && lyricsView && !lyricsView.hidden)
@@ -74,7 +168,7 @@ static BOOL hasTapped = NO;
 		lastItem = [mediaItem retain];
 		CGRect frame = cView.frame;
 		if (!lyricsView) {
-			lyricsView = [[$MusicLyricsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+			lyricsView = [[$MPULyricsView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 			[lyricsView setHidden:NO animated:NO];
 		}
 
@@ -104,6 +198,7 @@ static BOOL hasTapped = NO;
 
 
 %end
+%end
 
 
 // Spotify integration, finally!
@@ -130,26 +225,38 @@ static UITextView *lyricsView = nil;
 static NSString *artistName = nil;
 static NSString *songName = nil;
 
+%new
+- (void)initLyricsView {
+	if (!lyricsView) {
+		lyricsView = [[UITextView alloc] initWithFrame:[[self coverArtView] frame]];
+		[lyricsView setAlpha:0];
+		[lyricsView setUserInteractionEnabled:YES];
+		[lyricsView setEditable:NO];
+		[lyricsView setTextColor:[UIColor whiteColor]];
+		[lyricsView setTextAlignment:NSTextAlignmentCenter];
+		[lyricsView setFont:[UIFont systemFontOfSize:14.0f]];
+		[lyricsView setTextContainerInset:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+		[lyricsView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
+	}
+	UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
+	[tapRec setNumberOfTapsRequired:1];
+	[lyricsView addGestureRecognizer:tapRec];
+	UITapGestureRecognizer *tapRec2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
+	[tapRec2 setNumberOfTapsRequired:1];
+	[[[self coverArtView] coverArtView] addGestureRecognizer:tapRec2];
+	[self addSubview:lyricsView];
+}
+
+- (id)initWithFrame:(CGRect)arg1 andConnectButton:(id)arg2 imageLoaderFactory:(id)arg3 {
+	if ((self = %orig)) {
+		[self initLyricsView];
+	}
+	return self;
+}
+
 - (id)initWithFrame:(CGRect)frame andConnectButton:(id)button {
 	if ((self = %orig)) {
-		if (!lyricsView) {
-			lyricsView = [[UITextView alloc] initWithFrame:[[self coverArtView] frame]];
-			[lyricsView setAlpha:0];
-			[lyricsView setUserInteractionEnabled:YES];
-			[lyricsView setEditable:NO];
-			[lyricsView setTextColor:[UIColor whiteColor]];
-			[lyricsView setTextAlignment:NSTextAlignmentCenter];
-			[lyricsView setFont:[UIFont systemFontOfSize:14.0f]];
-			[lyricsView setTextContainerInset:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
-			[lyricsView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]];
-		}
-		UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
-		[tapRec setNumberOfTapsRequired:1];
-		[lyricsView addGestureRecognizer:tapRec];
-		UITapGestureRecognizer *tapRec2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lyricsViewTapped:)];
-		[tapRec2 setNumberOfTapsRequired:1];
-		[[[self coverArtView] coverArtView] addGestureRecognizer:tapRec2];
-		[self addSubview:lyricsView];
+		[self initLyricsView];
 	}
 	return self;
 }
@@ -176,9 +283,9 @@ static NSString *songName = nil;
 %new
 - (void)imageSlideViewWasTapped {
 	CGRect fr = [[self coverArtView] frame];
-	fr.origin.x = 5;
+	// fr.origin.x = 5;
 	// fr.origin.y = 0;
-	fr.size.width = 320.0f;
+	// fr.size.width = [[UIScreen mainScreen] fixedCoordinateSpace].bounds.size.width - 10;
 	[lyricsView setFrame:fr];
 	if ([lyricsView alpha]==0) {
 		[self reloadLyrics];
@@ -295,7 +402,12 @@ static NSString *songName = nil;
 
 %ctor {
     NSString *platform = [[UIDevice currentDevice] model];
-    %init
+    if (IOS_80) {
+    	%init(iOS8);
+    } else {
+    	%init(iOS7);
+    }
+    %init;
     if ([platform rangeOfString:@"iPad"].location == NSNotFound)
 		%init(SpotifyPhone)
 }

@@ -84,7 +84,7 @@ static NSString *NSStringURLEncode(NSString *string) {
 				// 	[self addCachedLyric:respString withSong:song andArtist:artist];
 				if (![respDict objectForKey:@"statusCode"] && [respDict objectForKey:@"lyrics"])
 					[self addCachedLyric:[respDict objectForKey:@"lyrics"] withSong:song andArtist:artist];
-				// NSLog(@"resp %@", respString);
+				NSLog(@"resp %@", respDict);
 
 				if ([target respondsToSelector:selector]) {
 					NSLog(@"Responds");

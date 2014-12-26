@@ -4,7 +4,7 @@
  * (c) James Long 2011-2014 *
 */
 
-#define LYRICS_API @"http://lyricalizer.ac3xx.com:3000"
+#define LYRICS_API @"http://gitlab.evolse.com:3000"
 #define LYRICS_DIR @"/Library/Application Support/Lyricalizer/"
 #define LYRICS_PATH [NSString stringWithFormat:@"%@Lyrics.cache", LYRICS_DIR]
 #define LYFORMAT(name, artist) [NSString stringWithFormat:@"%@-%@", name, artist]

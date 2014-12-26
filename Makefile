@@ -1,15 +1,16 @@
-export THEOS_DEVICE_IP=10.0.0.3
-export TARGET = iphone:clang:7.0
+export THEOS_DEVICE_IP=10.0.0.8
+export TARGET = iphone:clang:8.1
 export GO_EASY_ON_ME=1
-export ARCHS = armv7 armv7s arm64
+export ARCHS = armv7 arm64
 export THEOS_BUILD_DIR = ./debs
+export PACKAGE_VERSION = 1.4.0
 
 include theos/makefiles/common.mk
 
 TWEAK_NAME = Lyricalizer
 Lyricalizer_FILES = Tweak.xm LYManager.m
 Lyricalizer_FRAMEWORKS = MediaPlayer UIKit
-Lyricalizer_PRIVATE_FRAMEWORKS = MusicUI
+Lyricalizer_PRIVATE_FRAMEWORKS = MusicUI MediaPlayerUI
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
