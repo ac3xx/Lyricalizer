@@ -1,9 +1,9 @@
 Package: com.ac3xx.lyricalizer
 Name: Lyricalizer
 Depends: mobilesubstrate
-Version: 1.3.4
+Version: 1.4.2
 Architecture: iphoneos-arm
-Description: Automatic lyric fetching in the Music app for all iOS 7 devices, and Spotify for iPhone/iPod Touch.
+Description: Automatic lyric fetching in the Music app for all iOS 7/8 devices, and Spotify for iPhone/iPod Touch.
 Maintainer: ac3xx
 Author: ac3xx
 Section: Tweaks

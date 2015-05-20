@@ -277,6 +277,8 @@ static NSString *songName = nil;
 	NSString *song = songName;
 	NSString *artist = artistName;
 
+	NSLog(@"Song: %@, Artist: %@", song, artist);
+
 	[[LYManager sharedInstance] fetchLyricsWithSong:song andArtist:artist andTarget:self andSelector:@selector(lyricsReturned:)];
 }
 
@@ -300,6 +302,14 @@ static NSString *songName = nil;
 	songName = [arg1 retain];
 	artistName = [arg2 retain];
 	%orig;
+	[self reloadLyrics];
+}
+
+- (void)updateMetadataLabelsWithTrackTitle:(id)arg1 subtitle:(id)arg2 {
+	[lyricsView setText:@"Fetching lyrics..."];
+	songName = [arg1 retain];
+	artistName = [arg2 retain];
+	%orig(arg1, arg2);
 	[self reloadLyrics];
 }
 
@@ -339,6 +349,8 @@ static NSString *songName = nil;
 - (void)reloadLyrics {
 	NSString *song = [[self currentTrack] name];
 	NSString *artist = [[[self currentTrack] artist] name];
+
+	NSLog(@"Song: %@, Artist: %@", song, artist);
 
 	[[LYManager sharedInstance] fetchLyricsWithSong:song andArtist:artist andTarget:self andSelector:@selector(lyricsReturned:)];
 }
